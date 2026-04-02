@@ -1,0 +1,6 @@
+export const STK_PUSH_REQUEST = "STK_PUSH_REQUEST";
+export const STK_PUSH_SUCCESS = "STK_PUSH_SUCCESS";
+export const STK_PUSH_FAIL = "STK_PUSH_FAIL";
+export const STK_PUSH_RESET = "STK_PUSH_RESET";
+
+export const CLEAR_ERRORS = "CLEAR_ERRORS";

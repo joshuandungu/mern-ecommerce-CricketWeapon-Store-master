@@ -1,0 +1,61 @@
+.sidebar {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+.sidebar-logo {
+    color: tomato;
+    text-align: center;
+    font-family: "Roboto";
+    font-weight: 900;
+    transition: all 0.5s;
+    padding-bottom: 2rem;
+}
+
+.sidebar-logo:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    transform: scale(1.1);
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.493);
+    font: 200 1rem "Roboto";
+    padding: 2rem;
+    transition: all 0.5s;
+}
+
+.sidebar a:hover {
+    color: tomato;
+    transform: scale(1.1);
+}
+
+.sidebar a>p {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a>p>svg {
+    margin-right: 0.5rem;
+}
+
+.MuiTypography-root {
+    font: 200 1rem "Roboto" !important;
+}
+
+.MuiTreeItem-iconContainer svg {
+    font-size: 1.5rem;
+}
+
+.MuiTreeItem-label {
+    padding: 1rem 0 !important;
+}
+
+@media screen and (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+}

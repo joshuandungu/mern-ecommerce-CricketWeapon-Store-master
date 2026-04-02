@@ -1,0 +1,143 @@
+/* Global E-Commerce Modernization targeting existing class structures */
+
+body {
+    background-color: #FDFDFD;
+    color: #121212;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Smooth Scroll for modern navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Modernized Header/Navbar */
+.navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+}
+
+.contactButton {
+    border-radius: 30px !important;
+    background: #E30613 !important;
+    box-shadow: 0 4px 14px 0 rgba(227, 6, 19, 0.3) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Product Grid & Cards */
+.productCard img {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.productCard:hover img {
+    background-color: #efefef;
+}
+
+/* Admin Dashboard Polish */
+.sidebar {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #F0F0F0 !important;
+}
+
+.sideBarMenuItem {
+    border-radius: 8px !important;
+    margin: 8px 16px !important;
+}
+
+/* Authentication & General Form Styling (Login/Register) */
+.formContainer {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fcfcfc;
+    padding: 40px 20px;
+}
+
+.form {
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #f0f0f0;
+}
+
+.form h1,
+.heading {
+    font-weight: 800 !important;
+    color: #1a1a1a;
+    margin-bottom: 40px !important;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Input styling to match modern aesthetic */
+.MuiTextField-root {
+    margin-bottom: 20px !important;
+}
+
+.loginButton {
+    height: 50px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    margin-top: 20px !important;
+    box-shadow: 0 10px 20px rgba(227, 6, 19, 0.2) !important;
+}
+
+/* Signup Page Specific Field Spacing & Avatar Styling */
+#registerImage {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    /* Increased spacing for clarity */
+    width: 100%;
+}
+
+#registerImage>img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    border: 2px solid #f0f0f0;
+    background-color: #f9f9f9;
+}
+
+#registerImage>input {
+    display: flex;
+    width: 100%;
+    padding: 0%;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Generic Payment Page Styling (Stripe & M-Pesa inputs) */
+.StripeElement {
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease;
+}
+
+.StripeElement--focus {
+    border-color: #E30613;
+}
+
+.mpesaLogo {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
