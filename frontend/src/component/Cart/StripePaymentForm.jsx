@@ -11,8 +11,8 @@ import {
     useStripe,
     useElements,
 } from "@stripe/react-stripe-js";
-import { Typography, TextField, Grid, Button } from "@material-ui/core";
-import { CreditCard, Event as EventIcon, VpnKey as VpnKeyIcon, Lock } from "@material-ui/icons";
+import { Typography, TextField, Button } from "@material-ui/core";
+import { CreditCard, Event as EventIcon, VpnKey as VpnKeyIcon } from "@material-ui/icons";
 import useStyles from "../User/LoginFromStyle"; // Assuming this is used for styling
 
 const StripePaymentForm = () => {

@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create an axios instance using the environment variable
 const API = axios.create({
-    baseURL: process.env.REACT_APP_BACKEND_URL || "http://localhost:5000/api/v1",
+    baseURL: `${process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"}`,
     withCredentials: true, // Required for sending/receiving cookies (JWT) across origins
 });
 

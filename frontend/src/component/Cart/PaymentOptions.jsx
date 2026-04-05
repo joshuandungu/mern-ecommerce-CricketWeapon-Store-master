@@ -8,8 +8,7 @@ import {
     FormControlLabel,
     Button,
     Container,
-    Paper,
-    Box
+    Paper
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";

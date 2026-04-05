@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload"); // used for image and other files
 const path = require("path");
 const cors = require("cors");
+
 require("dotenv").config({ path: "config/config.env" });
 
 app.use(cors({
@@ -13,7 +14,6 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
-
 
 
 
