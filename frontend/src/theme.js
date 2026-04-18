@@ -3,12 +3,12 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#E30613', // Modern Vibrant Red for "Weapon" brand
-            dark: '#B2050F',
+            main: '#111111', // Sophisticated Matte Black
+            dark: '#000000',
             contrastText: '#ffffff',
         },
         secondary: {
-            main: '#1A1A1A', // Sophisticated Black
+            main: '#C5A059', // Elegant Gold Accent for Fashion
         },
         background: {
             default: '#FDFDFD',
@@ -20,7 +20,7 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: '"Inter", "Poppins", "Roboto", sans-serif',
+        fontFamily: '"Playfair Display", "Inter", "Poppins", sans-serif', // Added Serif for luxury feel
         h1: { fontWeight: 800, letterSpacing: '-0.02em' },
         h2: { fontWeight: 700, letterSpacing: '-0.01em' },
         h5: { fontWeight: 600 },
@@ -47,7 +47,7 @@ const theme = createTheme({
                     padding: '10px 24px',
                     boxShadow: 'none',
                     '&:hover': {
-                        boxShadow: '0px 8px 16px rgba(227, 6, 19, 0.2)',
+                        boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
                         transform: 'translateY(-1px)',
                     },
                 },
@@ -82,7 +82,7 @@ const theme = createTheme({
                     '& .MuiOutlinedInput-root': {
                         borderRadius: '10px',
                         '&:hover fieldset': {
-                            borderColor: '#E30613',
+                            borderColor: '#111111',
                         },
                     },
                 },

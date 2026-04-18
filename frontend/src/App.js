@@ -5,7 +5,7 @@ import { load_UserProfile } from "./actions/userAction";
 import API from "./apiConfig";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CricketBallLoader from "./component/layouts/loader/Loader";
+import PageLoader from "./component/layouts/loader/Loader";
 import PrivateRoute from "./component/Route/PrivateRoute";
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import "./App.css";
@@ -114,7 +114,7 @@ function App() {
   return (
     <>
       <SpeedInsights />
-      <Suspense fallback={<CricketBallLoader />}>
+      <Suspense fallback={<PageLoader />}>
         <Switch>
           {/* Admin Routes */}
           <PrivateRoute isAdmin={true} exact path="/admin/dashboard" component={LazyDashboard} />

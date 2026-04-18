@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "translateY(-50%)",
     border: "none",
     "&:hover": {
-      color: "#ed1c24",
+      color: "#C5A059",
       background: "none",
     },
   },
@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     "&:hover": {
       textDecoration: "underline",
-      color: "#ed1c24",
+      color: "#121212",
     },
   },
   termsAndConditionsText: {
@@ -125,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     fontSize: "14px",
     "&:hover": {
-      color: "#ed1c24",
+      color: "#C5A059",
     },
   },
   createAccount: {
@@ -134,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#121212",
     paddingLeft: "6px",
     "&:hover": {
-      color: "#ed1c24",
+      color: "#C5A059",
       textDecoration: "underline",
     },
   },
@@ -209,7 +209,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "black",
     },
     "&:hover": {
-      backgroundColor: "#ed1c24",
+      backgroundColor: "#C5A059",
     },
   },
   input: {
@@ -281,7 +281,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#414141",
     height: "2.5rem",
     "&:hover": {
-      backgroundColor: "#ed1c24",
+      backgroundColor: "#C5A059",
     },
   },
 
@@ -300,7 +300,7 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "center",
     "& svg": {
       color: "#414141",
-      fontSize: "2.5rem !important", 
+      fontSize: "2.5rem !important",
       boxShadow: `0px 4px 10px rgba(0, 0, 0, 0.3)`,
     },
   },
@@ -394,7 +394,7 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .MuiOutlinedInput-root": {
       "&:hover fieldset": {
-        borderColor: "#ed1c24",
+        borderColor: "#C5A059",
       },
       "&.Mui-focused fieldset": {
         borderColor: "black",
@@ -416,7 +416,7 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "black",
     },
     "& .MuiMenuItem-root:hover": {
-      backgroundColor: "#ed1c24",
+      backgroundColor: "#C5A059",
       color: "white",
     },
   },
@@ -427,7 +427,7 @@ const useStyles = makeStyles((theme) => ({
       color: "black",
     },
     "& .MuiMenuItem-root:hover": {
-      backgroundColor: "#ed1c24",
+      backgroundColor: "#C5A059",
       color: "white",
     },
   },

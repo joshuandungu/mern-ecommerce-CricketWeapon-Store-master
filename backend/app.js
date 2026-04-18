@@ -6,18 +6,19 @@ const fileUpload = require("express-fileupload"); // used for image and other fi
 const path = require("path");
 const cors = require("cors");
 
+app.set('trust proxy', 1); // Required for secure cookies on Render/Vercel
+
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  "http://localhost:3000"
+].filter(Boolean);
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: allowedOrigins,
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
-
-
-
-
-
-
 // routes
 
 const user = require("./route/userRoute");
@@ -29,7 +30,6 @@ const mpesa = require("./route/mpesaRoute");
 
 // for req.cookie to get token while autentication
 app.use(cookieParser());
-app.use(express.json());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(fileUpload());
