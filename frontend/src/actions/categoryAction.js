@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../apiConfig";
 import {
     ALL_CATEGORIES_REQUEST,
     ALL_CATEGORIES_SUCCESS,
@@ -19,7 +19,7 @@ import {
 export const getAllCategories = () => async (dispatch) => {
     try {
         dispatch({ type: ALL_CATEGORIES_REQUEST });
-        const { data } = await axios.get("/api/v1/categories");
+        const { data } = await API.get("/api/v1/categories");
         dispatch({
             type: ALL_CATEGORIES_SUCCESS,
             payload: data.categories,
@@ -37,7 +37,7 @@ export const createCategory = (categoryData) => async (dispatch) => {
     try {
         dispatch({ type: NEW_CATEGORY_REQUEST });
         const config = { headers: { "Content-Type": "application/json" } };
-        const { data } = await axios.post(
+        const { data } = await API.post(
             `/api/v1/admin/category/new`,
             categoryData,
             config
@@ -59,7 +59,7 @@ export const updateCategory = (id, categoryData) => async (dispatch) => {
     try {
         dispatch({ type: UPDATE_CATEGORY_REQUEST });
         const config = { headers: { "Content-Type": "application/json" } };
-        const { data } = await axios.put(
+        const { data } = await API.put(
             `/api/v1/admin/category/${id}`,
             categoryData,
             config
@@ -80,7 +80,7 @@ export const updateCategory = (id, categoryData) => async (dispatch) => {
 export const deleteCategory = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_CATEGORY_REQUEST });
-        const { data } = await axios.delete(`/api/v1/admin/category/${id}`);
+        const { data } = await API.delete(`/api/v1/admin/category/${id}`);
         dispatch({
             type: DELETE_CATEGORY_SUCCESS,
             payload: data.success,

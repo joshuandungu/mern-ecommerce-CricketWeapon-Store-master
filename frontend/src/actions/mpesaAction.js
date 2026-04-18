@@ -1,4 +1,4 @@
-import axios from "axios";
+import API from "../apiConfig";
 import {
     STK_PUSH_REQUEST,
     STK_PUSH_SUCCESS,
@@ -16,7 +16,7 @@ export const initiateStkPush = (paymentData) => async (dispatch) => {
             },
         };
 
-        const { data } = await axios.post("/api/v1/mpesa/stkpush", paymentData, config);
+        const { data } = await API.post("/api/v1/mpesa/stkpush", paymentData, config);
 
         dispatch({
             type: STK_PUSH_SUCCESS,
