@@ -1,8 +1,8 @@
 // dispaly Money In indian Formate
-export const dispalyMoney = function(num) {
+export const dispalyMoney = function (num) {
   const numFormate = new Intl.NumberFormat("en-IN", {
     style: "currency",
-    currency: "INR",
+    currency: "Ksh",
   });
 
   const arr = numFormate.format(num).split(".", 1);
@@ -28,6 +28,6 @@ export function generateDiscountedPrice(price) {
   var discountPercentage = 35;
   var discountAmount = (discountPercentage / 100) * price;
   var discountedPrice = price - discountAmount;
-  return discountedPrice.toFixed(2); 
+  return discountedPrice.toFixed(2);
 }
 

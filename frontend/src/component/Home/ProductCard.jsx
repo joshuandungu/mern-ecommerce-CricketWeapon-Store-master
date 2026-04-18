@@ -9,10 +9,11 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 import Rating from "@material-ui/lab/Rating";
 import { FitScreen } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import {dispalyMoney  ,generateDiscountedPrice} from "../DisplayMoney/DisplayMoney"
+import { dispalyMoney, generateDiscountedPrice } from "../DisplayMoney/DisplayMoney"
 import { addItemToCart } from "../../actions/cartAction";
 import { useDispatch } from "react-redux";
 const useStyles = makeStyles((theme) => ({
@@ -24,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
     currsor: "pointer",
   },
   media: {
-  
+
     height: 200,
     width: "90%",
     objectFit: "cover",
-    margin : "1rem 1rem 0 1rem"
-   },
+    margin: "1rem 1rem 0 1rem"
+  },
   button: {
     backgroundColor: "black",
     color: "white",
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: 45,
     "&:hover": {
-      backgroundColor: "#ed1c24",
+      backgroundColor: "#C5A059",
       color: "black",
       fontWeight: "bold",
     },
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     fontSize: "0.8rem",
-    fontWeight: 500, 
+    fontWeight: 500,
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
     display: "-webkit-box",
@@ -69,21 +70,21 @@ const useStyles = makeStyles((theme) => ({
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
-    let discountPrice = generateDiscountedPrice(product.price);
-    discountPrice = dispalyMoney(discountPrice);
-  const oldPrice = dispalyMoney(product.price);
-  
+  const discountPrice = generateDiscountedPrice(product.price);
+  const formattedDiscountPrice = `${CURRENCY_SYMBOL}${discountPrice}`;
+  const formattedOldPrice = `${CURRENCY_SYMBOL}${product.price}`;
+
   const truncated =
     product.description
       .split(" ")
       .slice(0, 5)
       .join(" ") + "...";
-      const  nameTruncated = product.name.split(" ").slice(0, 3).join(" ") + "...";
+  const nameTruncated = product.name.split(" ").slice(0, 3).join(" ") + "...";
 
 
-      const addTocartHandler = (id , qty) => {
-        dispatch(addItemToCart(id , qty))
-      }
+  const addTocartHandler = (id, qty) => {
+    dispatch(addItemToCart(id, qty))
+  }
 
   return (
     <Card className={classes.root}>
@@ -110,7 +111,7 @@ const ProductCard = ({ product }) => {
                 precision={0.1}
                 readOnly
                 size="small"
-                style={{ color: "#ed1c24", marginRight: 8, fontWeight: "400" }}
+                style={{ color: "#C5A059", marginRight: 8, fontWeight: "400" }}
               />
               <Typography variant="body2" color="textSecondary">
                 ({product.numOfReviews})
@@ -126,10 +127,10 @@ const ProductCard = ({ product }) => {
             </Typography>
             <Box display="flex" alignItems="center">
               <Typography variant="body1" className={classes.oldPrice}>
-                {oldPrice}
+                {formattedOldPrice}
               </Typography>
               <Typography variant="body1" className={classes.finalPrice}>
-                {discountPrice}
+                {formattedDiscountPrice}
               </Typography>
             </Box>
           </CardContent>

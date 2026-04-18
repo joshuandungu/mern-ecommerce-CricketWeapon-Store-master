@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { myOrders, clearErrors } from "../../actions/orderAction";
 import MetaData from "../layouts/MataData/MataData";
-import CricketBallLoader from "../layouts/loader/Loader";
+import PageLoader from "../layouts/loader/Loader";
 import { useAlert } from "react-alert";
 import OrderCard from "./OrderCard";
 
@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
     padding: "2rem",
     marginBottom: "1rem",
-   flexDirection: "column",
-   alignItems: "center",
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "center",
     display: "flex",
     marginTop: "7rem",
-   
+
   },
   orderPageTitle: {
     fontSize: "1.2rem",
@@ -38,7 +38,7 @@ const MyOrder = () => {
   const alert = useAlert();
 
   const { orders, loading, error } = useSelector((state) => state.myOrder);
-  const { user } = useSelector((state) => state.userData);
+  const { user, isAuthenticated } = useSelector((state) => state.userData);
 
   useEffect(() => {
     if (error) {
@@ -46,15 +46,18 @@ const MyOrder = () => {
       dispatch(clearErrors());
     }
 
-    dispatch(myOrders());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-
   }, [dispatch, alert, error]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(myOrders());
+    }
+  }, [dispatch, isAuthenticated]);
 
   return (
     <>
       {loading ? (
-        <CricketBallLoader />
+        <PageLoader />
       ) : (
         <div>
           <MetaData title="My Orders" />
@@ -63,11 +66,11 @@ const MyOrder = () => {
               Your Order
             </Typography>
             <Typography variant="body1" className={classes.orderPageText}>
-              {orders.length} order placed in {currentYear}
+              {orders?.length || 0} order placed in {currentYear}
             </Typography>
           </div>
 
-          {orders.map((item) => (
+          {orders?.map((item) => (
             <div className={classes.orderCard} key={item._id}>
               <OrderCard item={item} user={user} />
             </div>

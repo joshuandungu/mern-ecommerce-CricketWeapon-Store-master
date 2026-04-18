@@ -8,6 +8,7 @@ import MetaData from "../layouts/MataData/MataData";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import { getAllCategories } from "../../actions/categoryAction";
 import ProductCard from "../Home/ProductCard";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 import Pagination from "react-js-pagination";
 import Slider from "@mui/material/Slider";
 import { Typography } from "@mui/material";
@@ -139,6 +140,7 @@ function Products() {
                         max={100000}
                         step={100}
                         valueLabelDisplay="auto"
+                        valueLabelFormat={(value) => `${CURRENCY_SYMBOL}${value}`}
                         aria-labelledby="range-slider"
                       />
                     </div>
@@ -152,14 +154,14 @@ function Products() {
                           className="priceOption"
                           IconComponent={ArrowDropDownIcon}
                           renderValue={(selected) =>
-                            selected !== "" ? selected : "min"
+                            selected !== "" ? `${CURRENCY_SYMBOL}${selected}` : "min"
                           } // Display "min" as default label
                         >
                           <MenuItem value={5000} className="menu_item">
-                            5000
+                            {CURRENCY_SYMBOL}5000
                           </MenuItem>
                           <MenuItem value={10000} className="menu_item">
-                            10000
+                            {CURRENCY_SYMBOL}10000
                           </MenuItem>
                           {/* Add more options as per your requirement */}
                         </Select>
@@ -172,14 +174,14 @@ function Products() {
                           className="priceOption"
                           IconComponent={ArrowDropDownIcon}
                           renderValue={(selected) =>
-                            selected !== "" ? selected : "max"
+                            selected !== "" ? `${CURRENCY_SYMBOL}${selected}` : "max"
                           }
                         >
                           <MenuItem value={50000} className="menu_item">
-                            50000
+                            {CURRENCY_SYMBOL}50000
                           </MenuItem>
                           <MenuItem value={20000} className="menu_item">
-                            20000
+                            {CURRENCY_SYMBOL}20000
                           </MenuItem>
                           {/* Add more options as per your requirement */}
                         </Select>

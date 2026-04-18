@@ -6,12 +6,10 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "./FeatureSlider.css";
 import { Link } from "react-router-dom";
-import {
-  dispalyMoney,
-  generateDiscountedPrice,
-} from "../DisplayMoney/DisplayMoney";
+import { generateDiscountedPrice } from "../DisplayMoney/DisplayMoney";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 const FeaturedSlider = ({ products }) => {
- 
+
   return (
     <Swiper
       modules={[EffectCoverflow, Pagination, A11y, Autoplay]}
@@ -46,10 +44,10 @@ const FeaturedSlider = ({ products }) => {
       className="featured_swiper"
     >
       {products.map((product) => {
-        const { _id, images, name ,price  } = product;
-        let newPrice = generateDiscountedPrice(price);
-        newPrice = dispalyMoney(newPrice);
-        const oldPrice = dispalyMoney(price);
+        const { _id, images, name, price } = product;
+        const newPrice = generateDiscountedPrice(price);
+        const formattedNewPrice = `${CURRENCY_SYMBOL}${newPrice}`;
+        const formattedOldPrice = `${CURRENCY_SYMBOL}${price}`;
 
         return (
           <SwiperSlide key={_id} className="featured_slides">
@@ -62,9 +60,9 @@ const FeaturedSlider = ({ products }) => {
                 <img src={images[0].url} alt={name} />
               </figure>
               <h2 className="products_price">
-                <span className="final_price">{newPrice}</span> &nbsp;
+                <span className="final_price">{formattedNewPrice}</span> &nbsp;
                 <small>
-                  <del className="old_price">{oldPrice}</del>
+                  <del className="old_price">{formattedOldPrice}</del>
                 </small>
               </h2>
             </Link>

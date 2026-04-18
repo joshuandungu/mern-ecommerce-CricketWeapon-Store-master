@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   Card,
   Typography,
@@ -10,9 +10,10 @@ import { makeStyles } from "@mui/styles";
 import ReplayIcon from "@mui/icons-material/Replay";
 import EditIcon from "@mui/icons-material/Edit";
 import { useDispatch } from "react-redux";
-import {useAlert} from "react-alert";
+import { useAlert } from "react-alert";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 import { addItemToCart } from "../../actions/cartAction";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import DialogBox from "../Product/DialogBox";
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem",
     width: "100%",
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-    marginTop:"1rem",
+    marginTop: "1rem",
   },
   leftSide: {
     display: "flex",
@@ -158,8 +159,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     "&:hover": {
-      backgroundColor: "#ed1c24 !important",
-      borderColor: "#ed1c24 !important",
+      backgroundColor: "#C5A059 !important",
+      borderColor: "#C5A059 !important",
     },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
@@ -180,8 +181,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     "&:hover": {
-      backgroundColor: "#ed1c24 !important",
-      borderColor: "#ed1c24 !important",
+      backgroundColor: "#C5A059 !important",
+      borderColor: "#C5A059 !important",
     },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
@@ -246,48 +247,48 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
- const createdAt = (user) => {
-   const createdAt = new Date(user.createdAt);
-   const options = {
-     year: "numeric",
-     month: "2-digit",
-     day: "2-digit",
-     hour: "2-digit",
-     minute: "2-digit",
-     hour12: true,
-     timeZone: "Asia/Kolkata",
-   };
+const createdAt = (user) => {
+  const createdAt = new Date(user.createdAt);
+  const options = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "Asia/Kolkata",
+  };
 
-   const formatter = new Intl.DateTimeFormat("en-IN", options);
-   const formattedDate = formatter.format(createdAt);
-   return formattedDate;
- };
+  const formatter = new Intl.DateTimeFormat("en-IN", options);
+  const formattedDate = formatter.format(createdAt);
+  return formattedDate;
+};
 
 
-const OrderCard = ({item , user}) => {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const alert = useAlert();
-    const [open, setOpen] = useState(false);
-   
-const classes = useStyles();
+const OrderCard = ({ item, user }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const alert = useAlert();
+  const [open, setOpen] = useState(false);
+
+  const classes = useStyles();
   const isSmallScreen = useMediaQuery("(max-width: 999px)");
   const { shippingInfo, orderItems } = item;
-   
-  const addToCartHandler = (id , qty = 0) => {
-    dispatch(addItemToCart(id , qty))
+
+  const addToCartHandler = (id, qty = 0) => {
+    dispatch(addItemToCart(id, qty))
     alert.success("Item Added to Cart")
     history.push("/cart")
   }
 
-   const handleClickOpen = () => {
-     setOpen(true);
-   };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-   const handleClose = () => {
-     console.log("called");
-     setOpen(false);
-   };
+  const handleClose = () => {
+    console.log("called");
+    setOpen(false);
+  };
 
   return (
     <div className={classes.root}>
@@ -330,7 +331,7 @@ const classes = useStyles();
                   Total:
                 </Typography>
                 <Typography variant="body2" color="141414">
-                  <strong> ₹</strong>
+                  <strong> {CURRENCY_SYMBOL}</strong>
                   {product.price * product.quantity}
                 </Typography>
               </div>

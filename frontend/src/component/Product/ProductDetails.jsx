@@ -5,6 +5,7 @@ import AddIcon from "@material-ui/icons/Add";
 import { IconButton, Input } from "@material-ui/core";
 import DoneIcon from "@mui/icons-material/Done";
 import CloseIcon from "@mui/icons-material/Close";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 
 import {
   generateDiscountedPrice,
@@ -41,32 +42,32 @@ const ProductDetails = () => {
   const [previewImg, setPreviewImg] = useState("");
   const { handleActive, activeClass } = useActive(0);
 
-  const { product, loading, error , success  } = useSelector(
+  const { product, loading, error, success } = useSelector(
     (state) => state.productDetails
   );
 
 
-useEffect(() => {
-  if (error) {
-    alert.error(error);
-    dispatch(clearErrors);
-  }
-  if (success) {
-    setPreviewImg(product.images[0].url);
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors);
+    }
+    if (success) {
+      setPreviewImg(product.images[0].url);
 
-    handleActive(0);
-    dispatch({ type: PRODUCT_DETAILS_RESET });
-  }
-  dispatch(getProductDetails(match.params.id));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [
-  dispatch,
-  error,
-  alert,
-  success,
-  match.params.id,
+      handleActive(0);
+      dispatch({ type: PRODUCT_DETAILS_RESET });
+    }
+    dispatch(getProductDetails(match.params.id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    dispatch,
+    error,
+    alert,
+    success,
+    match.params.id,
 
-]);
+  ]);
 
 
   // handling Add-to-cart
@@ -82,7 +83,7 @@ useEffect(() => {
 
   // handling Preview image
   const handlePreviewImg = (images, i) => {
-   
+
     setPreviewImg(images[i].url);
     handleActive(i);
   };
@@ -105,9 +106,9 @@ useEffect(() => {
   // calculating Prices
   const finalPrice = generateDiscountedPrice(product.price);
   const discountedPrice = product.price - finalPrice;
-  const newPrice = dispalyMoney(finalPrice);
-  const oldPrice = dispalyMoney(product.price);
-  const savedPrice = dispalyMoney(discountedPrice);
+  const newPrice = `${CURRENCY_SYMBOL}${finalPrice}`;
+  const oldPrice = `${CURRENCY_SYMBOL}${product.price}`;
+  const savedPrice = `${CURRENCY_SYMBOL}${discountedPrice}`;
   const savedDiscount = calculateDiscount(discountedPrice, product.price);
 
   return (

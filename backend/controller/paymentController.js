@@ -6,10 +6,9 @@ exports.processPayment = asyncWrapper(async (req, res, next) => {
 
   const myPayment = await stripe.paymentIntents.create({
     amount: req.body.amount,
-    currency: "ksh",
-    currency: "ksh", // This remains 'kes' for Stripe API compatibility
+    currency: "kes", // This remains 'kes' for Stripe API compatibility
     metadata: {
-      company: "Cricket_Weapon_Ecommerce", // not mandatory
+      company: "Ecommerce", // not mandatory
     },
   });
 
