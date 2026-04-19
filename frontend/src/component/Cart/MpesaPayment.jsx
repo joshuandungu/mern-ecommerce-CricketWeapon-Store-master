@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import MetaData from "../layouts/MataData/MataData";
 import { Typography, TextField, Button, Avatar } from "@material-ui/core";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 import { initiateStkPush, clearErrors } from "../../actions/mpesaAction";
 import { createOrder } from "../../actions/orderAction";
 import { STK_PUSH_RESET } from "../../constants/mpesaConstants";
@@ -75,7 +76,7 @@ const MpesaPayment = () => {
                     Lipa na M-Pesa
                 </Typography>
                 <Typography variant="body2" style={{ textAlign: "center", marginBottom: "20px" }}>
-                    Amount to Pay: <b>₹{orderInfo && orderInfo.totalFinalPrice}</b>
+                    Amount to Pay: <b>{CURRENCY_SYMBOL}{orderInfo && orderInfo.totalFinalPrice}</b>
                 </Typography>
                 <TextField
                     label="M-Pesa Phone Number"

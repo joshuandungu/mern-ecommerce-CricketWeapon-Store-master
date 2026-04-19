@@ -4,6 +4,7 @@ import { useAlert } from "react-alert";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { createOrder, clearErrors } from "../../actions/orderAction";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 import {
     CardNumberElement,
     CardCvcElement,
@@ -131,7 +132,7 @@ const StripePaymentForm = () => {
             </div>
             <TextField label="Name on Card" variant="outlined" fullWidth value={nameOnCard} onChange={(e) => setNameOnCard(e.target.value)} required className={classes.textField} />
             <Button type="submit" variant="contained" className="paymentFormBtn">
-                Pay - ₹{orderInfo?.totalFinalPrice}
+                Pay - {CURRENCY_SYMBOL}{orderInfo?.totalFinalPrice}
             </Button>
         </form>
     );

@@ -256,10 +256,10 @@ const createdAt = (user) => {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
-    timeZone: "Asia/Kolkata",
+    timeZone: "Africa/Nairobi",
   };
 
-  const formatter = new Intl.DateTimeFormat("en-IN", options);
+  const formatter = new Intl.DateTimeFormat("en-KE", options);
   const formattedDate = formatter.format(createdAt);
   return formattedDate;
 };
@@ -370,7 +370,11 @@ const OrderCard = ({ item, user }) => {
                     <span
                       style={{
                         color:
-                          item.orderStatus === "Delivered" ? "green" : "red",
+                          item.orderStatus === "Delivered" || item.orderStatus === "Paid"
+                            ? "green"
+                            : item.orderStatus === "Shipped"
+                              ? "orange"
+                              : "red",
                       }}
                     >
                       {item.orderStatus}

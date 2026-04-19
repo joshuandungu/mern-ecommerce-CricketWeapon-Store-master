@@ -1,12 +1,11 @@
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
+
 // dispaly Money In indian Formate
 export const dispalyMoney = function (num) {
-  const numFormate = new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "Ksh",
-  });
+  const numFormate = new Intl.NumberFormat("en-KE");
 
-  const arr = numFormate.format(num).split(".", 1);
-  return arr[0];
+  const formattedNum = numFormate.format(num);
+  return `${CURRENCY_SYMBOL}${formattedNum}`;
 };
 
 // Calculate Discount Percentage
@@ -30,4 +29,3 @@ export function generateDiscountedPrice(price) {
   var discountedPrice = price - discountAmount;
   return discountedPrice.toFixed(2);
 }
-

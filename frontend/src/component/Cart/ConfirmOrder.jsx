@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import MetaData from "../layouts/MataData/MataData";
 import "./ConfirmOrder.css";
 import { Typography } from "@material-ui/core";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 import { Link, useHistory } from "react-router-dom";
 
 import Loader from "../layouts/loader/Loader"
@@ -85,8 +86,8 @@ function ConfirmOrder() {
                           {item.name}
                         </Link>
                         <span>
-                          {item.quantity} X ₹{item.price}={" "}
-                          <b>₹{item.price * item.quantity}</b>
+                          {item.quantity} X {CURRENCY_SYMBOL}{item.price}={" "}
+                          <b>{CURRENCY_SYMBOL}{item.price * item.quantity}</b>
                         </span>
                       </div>
                     ))}
@@ -103,24 +104,24 @@ function ConfirmOrder() {
                 <div>
                   <div>
                     <p>Subtotal : </p>
-                    <span>₹{subTotal}</span>
+                    <span>{CURRENCY_SYMBOL}{subTotal}</span>
                   </div>
 
                   <div>
                     <p>Shipping Charges:</p>
-                    <span>₹{shippingCharges}</span>
+                    <span>{CURRENCY_SYMBOL}{shippingCharges}</span>
                   </div>
 
                   <div>
                     <p>GST :</p>
-                    <span>₹{gst}</span>
+                    <span>{CURRENCY_SYMBOL}{gst}</span>
                   </div>
                 </div>
                 <div className="orderSummaryTotal">
                   <p>
                     <b>Total:</b>
                   </p>
-                  <span>₹{totalFinalPrice}</span>
+                  <span>{CURRENCY_SYMBOL}{totalFinalPrice}</span>
                 </div>
                 <button onClick={proceedToPayment}>Proceed To Payment</button>
               </div>

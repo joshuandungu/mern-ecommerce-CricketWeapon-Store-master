@@ -10,6 +10,7 @@ import {
     Container,
     Paper
 } from "@material-ui/core";
+import { CURRENCY_SYMBOL } from "../../constants/currencyConstant";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -165,7 +166,7 @@ const PaymentOptions = () => {
                             type="submit"
                         >
                             {paymentMethod === "cod" ? "Place Order" : "Continue to Pay"}
-                            &nbsp; - ₹{orderInfo?.totalFinalPrice}
+                            &nbsp; - {CURRENCY_SYMBOL}{orderInfo?.totalFinalPrice}
                         </Button>
                     </form>
                 </Paper>

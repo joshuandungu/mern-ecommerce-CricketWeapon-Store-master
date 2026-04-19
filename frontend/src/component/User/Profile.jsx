@@ -36,10 +36,10 @@ const ProfilePage = () => {
       hour: "2-digit",
       minute: "2-digit",
       hour12: true,
-      timeZone: "Asia/Kolkata",
+      timeZone: "Africa/Nairobi",
     };
 
-    const formatter = new Intl.DateTimeFormat("en-IN", options);
+    const formatter = new Intl.DateTimeFormat("en-KE", options);
     const formattedDate = formatter.format(createdAt);
     return formattedDate;
   };
@@ -59,7 +59,7 @@ const ProfilePage = () => {
       <div className="profileConatiner">
         <div className="leftCotainer">
           <h4
-          
+
             className="profileHeadingLeft"
           >
             Profile Overview
